@@ -1,11 +1,13 @@
 set fish_config_path $HOME/.config/fish
 cd .
 
-# adding an appropriate PATH variable for use with Homebrew
-set PATH (brew --prefix)/bin (brew --prefix)/sbin /usr/local/share/python $PATH
-# Finished adapting your PATH environment variable for use with Homebrew 
+if which brew >/dev/null
+	# adding an appropriate PATH variable for use with Homebrew
+	set PATH (brew --prefix)/bin (brew --prefix)/sbin /usr/local/share/python $PATH
+	# Finished adapting your PATH environment variable for use with Homebrew 
 
-set PYTHONPATH (brew --prefix)/lib/python2.7/site-packages
+	set PYTHONPATH (brew --prefix)/lib/python2.7/site-packages
+end
 
 # {{{ Function to reload configuration files
 function rc
